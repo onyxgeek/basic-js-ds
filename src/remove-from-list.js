@@ -27,6 +27,7 @@ function removeKFromList(/* l, k */) {
   // remove line with error and write your code here
 }
 
+
 module.exports = {
   removeKFromList
 };
