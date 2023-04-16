@@ -19,11 +19,14 @@ class Queue {
   }
 
   getUnderlyingList() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    let list = null;
+    for (let i = this.elements.length - 1; i >= 0; i--) {
+      list = {value: this.elements[i], next: list};
+    }
+    return list;
   }
 
-  enqueue( value) {
+  enqueue(value) {
     this.elements.push(value);
   }
 
@@ -31,9 +34,17 @@ class Queue {
     if (this.elements.length === 0) {
       return null;
     }
-    return this.elements.pop();
+    return this.elements.shift();
   }
 }
+
+
+const queue = new Queue();
+queue.enqueue(1);
+queue.enqueue(3);
+queue.dequeue(); // returns 1
+queue.getUnderlyingList(); // returns { value: 3, next: null }
+
 
 module.exports = {
   Queue
